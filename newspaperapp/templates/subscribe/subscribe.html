@@ -1,0 +1,23 @@
+{% extends 'flatpages/main.html' %}
+
+{% load static %}
+
+{% block content %}
+<script src="{% static 'js/scripts.js' %}"></script>
+
+<h2>Подписка на рассылку</h2>
+<form method="POST" action="{% url 'newspaperapp:subscribe' %}">
+  {% csrf_token %}
+  <input type="email" name="email" placeholder="Введите ваш email" required>
+
+  <label for="categories">Выберите категории:</label>
+  <select name="categories" id="categories" multiple>
+    {% for category in categories %}
+      <option value="{{ category.id }}">{{ category.name }}</option>
+    {% endfor %}
+  </select>
+
+  <button type="submit">Подписаться</button>
+</form>
+
+{% endblock %}

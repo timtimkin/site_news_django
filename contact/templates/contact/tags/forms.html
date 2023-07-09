@@ -1,0 +1,25 @@
+{% extends 'flatpages/main.html' %}
+
+{% load static %}
+
+{% block content %}
+<script src="{% static 'js/scripts.js' %}"></script>
+
+<h2>Подписка на рассылку</h2>
+<form method="POST" action="{% url 'newspaperapp:forms' %}">
+  {% csrf_token %}
+  {{ contact_form }}
+
+  <label for="categories">Выберите категории:</label>
+  <select name="categories" id="categories" multiple>
+    {% for category in categories %}
+      <option value="{{ category.id }}">{{ category.name }}</option>
+    {% endfor %}
+  </select>
+
+  <button type="submit">Подписаться</button>
+</form>
+<p>Если вы хотите отписаться от рассылки, перейдите по <a href="{% url 'newspaperapp:unsubscribe' %}?email={{ email }}">этой ссылке </a>.</p> <n/>
+пока не работает
+
+{% endblock %}
