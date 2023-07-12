@@ -1,0 +1,13 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %} Product list {% endblock title %}
+
+{% block content %}
+<h1>Создание статей и новостей</h1>
+<form method="POST" action="{% url 'newspaper:create_post' %}">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Создать">
+</form>
+
+{% endblock content %}

@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Уведомление о новом посте</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333333;
+        }
+
+        h1 {
+            color: #0099cc;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .post-title {
+            font-weight: bold;
+            color: #000000;
+        }
+
+        .post-link {
+            color: #0099cc;
+        }
+
+    </style>
 </head>
 <body>
-$END$
+    <h1>Уведомление о новом посте</h1>
+    <p>Здравствуйте, {{ subscriber.email }}!</p>
+    <p>На сайте был опубликован новый пост с заголовком: <span class="post-title">{{ post.title }}</span>.</p>
+    <p>Вы можете прочитать его, перейдя по <a class="post-link" href="http://127.0.0.1:8000/news/{{ post.get_absolute_url }}" target="_blank">ссылке</a>.</p>
+<!--    <p>Вы можете прочитать его, перейдя по <a class="post-link" href="http://5.166.164.176:8000/news/{{ post.get_absolute_url }}" target="_blank">ссылке</a>.</p>-->
 </body>
 </html>

@@ -1,0 +1,20 @@
+<h2>Еженедельная рассылка новостей</h2>
+<p>Здравствуйте, {{ subscriber.name }}!</p>
+
+<h3>Интересующие вас категории:</h3>
+<ul>
+    {% for category in categories %}
+        <li>{{ category.name }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Посты за последнюю неделю:</h3>
+<ul>
+    {% for post in posts %}
+        <li>
+            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<p>Спасибо за подписку! Будьте в курсе последних новостей.</p>

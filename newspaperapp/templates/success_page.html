@@ -1,0 +1,7 @@
+{% extends 'flatpages/default.html' %}
+
+
+{% block content %}
+  <h1>Пост успешно опубликован</h1>
+  <a href="{% url 'newspaper:post_list' %}">Вернуться к новостям</a>
+{% endblock %}

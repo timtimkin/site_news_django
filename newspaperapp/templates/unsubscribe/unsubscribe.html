@@ -1,0 +1,9 @@
+{% extends 'flatpages/main.html' %}
+
+{% block content %}
+<h2>Отписка от рассылки</h2>
+<p>Вы уверены, что хотите отписаться от рассылки?</p>
+<a href="{% url 'newspaperapp:unsubscribe_confirm' %}?email={{ email }}">Да, отписаться</a>
+<button> <a href="{% url 'newspaperapp:post_list' %}"> Вернуться к новостям</a> </button>
+<button> <a href="{% url 'newspaperapp:subscribe' %}"> Вернуться к кнопочкам</a> </button>
+{% endblock %}

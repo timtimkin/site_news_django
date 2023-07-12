@@ -1,0 +1,15 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+ 
+{% block title %} Product list {% endblock title %}
+ 
+{% block content %}
+    <h1>Вы действительно хотите удалить эту статью (новость)?</h1>
+    <p>{{ post.dateCreation|date:'d M Y' }}</p>
+    <p>{{ post.text|censor:'***ЦЕНЗУРА***' }}</p>
+ 
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" value="подтвердить"></form>
+{% endblock content %} 
